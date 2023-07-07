@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoT</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <button onclick="window.location.href='test.html';">Click Here</button>
+
+    <div id="container"></div>
+
+    <script>
+      const chr = new XMLHttpRequest();
+      const container = document.getElementById("0");
+
+      chr.onload = function () {
+        container.innerHTML = chr.responseText;
+      };
+
+      chr.open("get", "https://thronesapi.com/?ref=apislist.com");
+      chr.send();
+    </script>
+
+    <nav class="navbar bg-white">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+            <a class="navbar-brand" href="homePage.html">
+              <img
+                src="img/Game-of-Thrones-logo.png"
+                class="img-fluid"
+                alt="GoT logo"
+                width="100"
+                height="50"
+              />
+            </a>
+          </div>
+          <div class="col-sm-5">
+            <a class="nav-item">
+              <a class="nav-link" href="homePage.html">Main Page</a>
+            </a>
+          </div>
+          <div class="col-sm-1">
+            <a class="nav-item">
+              <a class="nav-link" href="index.html">Wiki</a>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div id="demo-modal"></div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="img/daenerys.jpg"
+            class="card-img-top"
+            alt="Daenerys Targaryen"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Daenerys Targaryen</h5>
+            <p class="card-text">
+              <li>ID: 0</li>
+              <li>First Name: Daenerys</li>
+              <li>Last Name: Targaryen</li>
+              <li>Full Name: Daenerys Targaryen</li>
+              <li>Title: Mother of Dragons</li>
+              <li>Family: House Targaryen</li>
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 20rem">
+          <img src="img/sam.jpg" class="card-img-top" alt="Samwell Tarly" />
+          <div class="card-body">
+            <h5 class="card-title">Samwell Tarly</h5>
+            <p class="card-text">
+              <li>ID: 1</li>
+              <li>First Name: Samwell</li>
+              <li>Last Name: Tarly</li>
+              <li>Full Name: Samwell Tarly</li>
+              <li>Title: Maester</li>
+              <li>Family: House Tarly</li>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img src="img/jon-snow.jpg" class="card-img-top" alt="Jon Snow" />
+          <div class="card-body">
+            <h5 class="card-title">Jon Snow</h5>
+            <p class="card-text">
+              <li>ID: 2</li>
+              <li>First Name: Jon</li>
+              <li>Last Name: Snow</li>
+              <li>Full Name: Jon Snow</li>
+              <li>Title: King of the North</li>
+              <li>Image: jon-snow.jpg</li>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card" style="width: 20rem">
+          <img src="img/arya-stark.jpg" class="card-img-top" alt="Arya Stark" />
+          <div class="card-body">
+            <h5 class="card-title">Arya Stark</h5>
+            <p class="card-text">
+              <li>ID: 3</li>
+              <li>First Name: Arya</li>
+              <li>Last Name: Stark</li>
+              <li>Full Name: Arya Stark</li>
+              <li>Title: No One</li>
+              <li>Family: House Stark</li>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="img/sansa-stark.jpeg"
+            class="card-img-top"
+            alt="Sansa Stark"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Sansa Stark</h5>
+            <p class="card-text">
+              <li>ID: 4</li>
+              <li>First Name: Sansa</li>
+              <li>Last Name: Stark</li>
+              <li>Full Name: Sansa Stark</li>
+              <li>Title: Lady of Winterfell</li>
+              <li>Family: House Stark</li>
+            </p>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem">
+          <img
+            src="img/bran-stark.jpg"
+            class="card-img-top"
+            alt="Brandon Stark"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Brandon Stark</h5>
+            <p class="card-text">
+              <li>ID: 5</li>
+              <li>First Name: Brandon</li>
+              <li>Last Name: Stark</li>
+              <li>Full Name: Brandon Stark</li>
+              <li>Title: Lord of Winterfell</li>
+              <li>Family: House Stark</li>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center">
+      <section class="d-flex justify-content-center p-5 border">
+        <a class="icon-link" href="https:allweb.gr">
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#box-seam"></use>
+          </svg>
+          AllWeb
+        </a>
+
+        <a
+          class="icon-link"
+          href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+        >
+          <svg class="bi" aria-hidden="true">
+            <use xlink:href="#box-seam"></use>
+          </svg>
+          Documentation
+        </a>
+      </section>
+    </footer>
+  </body>
+</html>
