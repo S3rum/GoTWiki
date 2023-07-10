@@ -13,33 +13,104 @@
     />
   </head>
   <body>
-    <form>
-      <input onclick="getContent();" type="button" value="get content" />
-    </form>
-
-    <div id="content"></div>
     <script>
-      function getContent() {
-        var textHtml = new XMLHttpRequest();
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("https://thronesapi.com/api/v2/Characters")
+          .then((response) => response.json())
 
-        textHtml.open("GET", "https://thronesapi.com/?ref=apislist.com");
-        textHtml.send(null);
+          .then((data) => {
+            createCards(data);
+            openCards();
+          })
 
-        var element = document.getElementById("content");
-        element.innerHTML = textHtml.responseText;
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+
+      var counter = 0;
+      function createCards(data) {
+        data.forEach((item) => {
+          if (counter == 0) {
+            const cardHtml = `
+            <div class="row">
+            <div class="card" style="width: 20rem">
+              <img
+                src="${item.imageUrl}"
+                class="card-img-top"
+                alt="${item.fullName}n"
+              />
+              <div class="card-body">
+                <h5 class="card-title">${item.fullName}</h5>
+                <p class="card-text">
+                  <li>ID: ${item.id}</li>
+                  <li>First Name: ${item.firstName}</li>
+                  <li>Last Name: ${item.lastName}</li>
+                  <li>Full Name: ${item.fullName}</li>
+                  <li>Title: ${item.title}</li>
+                  <li>Family: ${item.family}</li>
+                </p>
+              </div>
+            </div>`;
+            document.body.insertAdjacentHTML("beforeend", cardHtml);
+            counter++;
+          } else if (counter % 3 == 0) {
+            const cardHtml = `
+            </div><div class="row">
+            <div class="card" style="width: 20rem">
+            <img
+              src="${item.imageUrl}"
+              class="card-img-top"
+              alt="${item.fullName}n"
+            />
+            <div class="card-body">
+            <h5 class="card-title">${item.fullName}</h5>
+            <p class="card-text">
+              <li>ID: ${item.id}</li>
+              <li>First Name: ${item.firstName}</li>
+              <li>Last Name: ${item.lastName}</li>
+              <li>Full Name: ${item.fullName}</li>
+              <li>Title: ${item.title}</li>
+              <li>Family: ${item.family}</li>
+            </p>
+            </div>
+          </div>`;
+            document.body.insertAdjacentHTML("beforeend", cardHtml);
+            counter++;
+          } else {
+            const cardHtml1 = `
+            <div class="card" style="width: 20rem">
+            <img
+              src="${item.imageUrl}"
+              class="card-img-top"
+              alt="${item.fullName}n"
+            />
+            <div class="card-body">
+            <h5 class="card-title">${item.fullName}</h5>
+            <p class="card-text">
+              <li>ID: ${item.id}</li>
+              <li>First Name: ${item.firstName}</li>
+              <li>Last Name: ${item.lastName}</li>
+              <li>Full Name: ${item.fullName}</li>
+              <li>Title: ${item.title}</li>
+              <li>Family: ${item.family}</li>
+            </p>
+            </div>
+          </div>`;
+            document.body.insertAdjacentHTML("beforeend", cardHtml1);
+            counter++;
+          }
+        });
       }
-    </script>
 
-    <script>
-      const chr = new XMLHttpRequest();
-      const container = document.getElementById("0");
-
-      chr.onload = function () {
-        container.innerHTML = chr.responseText;
-      };
-
-      chr.open("get", "https://thronesapi.com/?ref=apislist.com");
-      chr.send();
+      function openCards() {
+        const modalTriggers = document.querySelectorAll(
+          '[data-toggle="modal"]'
+        );
+        modalTriggers.forEach((trigger) => {
+          trigger.click();
+        });
+      }
     </script>
 
     <script
